@@ -161,6 +161,11 @@ $RECYCLE.BIN/
 # Security and Sensitive Data
 # ================================
 
+# Scripts PID files and logs
+.backend.pid
+.frontend.pid
+logs/
+
 # Environment and configuration files with sensitive data
 .env
 *.env
