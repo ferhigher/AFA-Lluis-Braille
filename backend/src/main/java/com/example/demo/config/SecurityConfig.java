@@ -59,12 +59,11 @@ public class SecurityConfig {
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers(
-                                        new AntPathRequestMatcher("/api/auth/**"),
-                                        new AntPathRequestMatcher("/api/telegram/**"),
-                                        new AntPathRequestMatcher("/h2-console/**")
-                                ).permitAll()
-                                .anyRequest().authenticated()
+                        auth
+                            .requestMatchers(new AntPathRequestMatcher("/api/auth/**")).permitAll()
+                            .requestMatchers(new AntPathRequestMatcher("/api/telegram/messages", "GET")).permitAll()
+                            .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
+                            .anyRequest().authenticated()
                 );
 
         // Para H2 Console
