@@ -162,6 +162,7 @@ $RECYCLE.BIN/
 # ================================
 
 # Environment and configuration files with sensitive data
+.env
 *.env
 *.env.*
 !*.env.example
