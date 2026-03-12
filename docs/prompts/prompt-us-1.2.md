@@ -1,6 +1,6 @@
 Actúa como un senior fullstack engineer especializado en Spring Boot y React.
 
-Voy a pedirte que generes un **plan de implementación detallado** para la User Story US-1.1.
+Voy a pedirte que generes un **plan de implementación detallado** para la User Story US-1.2.
 
 ---
 
@@ -117,8 +117,8 @@ Checklist final antes de dar la US por terminada:
 - No refactorices código fuera del alcance de la US
 - No añadas dependencias nuevas sin justificarlas
 - Si la US tiene dependencias previas no implementadas, indícalo claramente al inicio del plan
-- Respeta el orden de implementación sugerido en `US-EPIC<N>.md`
+- Respeta el orden de implementación sugerido en `US-EPIC1.md`
 
 ---
 
-Genera el plan completo para **US-1.1**.
+Genera el plan completo para **US-1.2**.
