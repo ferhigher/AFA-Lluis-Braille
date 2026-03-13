@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.dto.JwtResponse;
 import com.example.demo.dto.LoginRequest;
 import com.example.demo.dto.SignupRequest;
+import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.security.JwtUtils;
@@ -53,7 +54,7 @@ public class AuthService {
                        user.getId(), user.getUsername(), user.getEmail());
             logger.info("=== FIN LOGIN EXITOSO ===");
 
-            return new JwtResponse(jwt, user.getId(), user.getUsername(), user.getEmail(), user.getName());
+            return new JwtResponse(jwt, user.getId(), user.getUsername(), user.getEmail(), user.getName(), user.getRole());
         } catch (Exception e) {
             logger.error("=== ERROR EN LOGIN ===");
             logger.error("Usuario: {}", loginRequest.getUsername());
@@ -103,6 +104,7 @@ public class AuthService {
             logger.debug("Contraseña encriptada (primeros 20 chars): {}...", 
                         encodedPassword.substring(0, Math.min(20, encodedPassword.length())));
             user.setPassword(encodedPassword);
+            user.setRole(Role.USER);
 
             logger.debug("Guardando usuario en la base de datos...");
             User savedUser = userRepository.save(user);
