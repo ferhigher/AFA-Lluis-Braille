@@ -286,17 +286,82 @@ Generado a partir de `PRD.md` · Marzo 2026
 
 ---
 
+---
+
+## EPIC 9 — Landing pública: estructura base y navegación
+**Prioridad:** P1 — Alto
+**Objetivo:** Crear la landing pública de `afalluisbraille.org` con estructura de navegación completa, hero section y footer, accesible sin autenticación.
+**Dependencias:** EPIC 4 (US-4.1 React Router), EPIC 5 (Branding)
+
+### Historias de usuario
+
+**US-9.1 — Ruta pública raíz y estructura base de la landing**
+> Como visitante, quiero que `/` cargue una landing pública sin requerir autenticación, para conocer la asociación antes de registrarme.
+
+**US-9.2 — Menú de navegación público**
+> Como visitante, quiero un navbar con la estructura `AFA ▾ | ASOCIATE | COMISIONES | COLEGIO | AVISOS | NOTICIAS | Acceder`, para navegar a cualquier sección de la web.
+
+**US-9.3 — Hero section**
+> Como visitante nuevo, quiero ver una sección de bienvenida con el nombre de la asociación y un CTA, para entender inmediatamente de qué trata la web.
+
+**US-9.4 — Footer**
+> Como visitante, quiero un footer con contacto, redes sociales y política de privacidad, para poder contactar con la asociación.
+
+---
+
+## EPIC 10 — Landing pública: secciones de contenido institucional
+**Prioridad:** P1 — Alto
+**Objetivo:** Construir las secciones estáticas de la landing: qué es la AFA, quiénes somos, cómo asociarse, comisiones y colegio.
+**Dependencias:** EPIC 9
+
+### Historias de usuario
+
+**US-10.1 — Sección "Qué es la AFA"**
+> Como visitante, quiero leer una explicación clara de la misión de la AFA Lluís Braille y sus pilares, para entender su propósito.
+
+**US-10.2 — Sección "Quiénes somos"**
+> Como visitante, quiero ver una presentación del equipo directivo de la AFA, para saber a quién dirigirme y confiar en la asociación.
+
+**US-10.3 — Sección y CTA "Asóciate"**
+> Como familiar del alumnado, quiero encontrar fácil y rápido cómo hacerme socio/a, para contribuir a la comunidad escolar.
+
+**US-10.4 — Sección "Comisiones"**
+> Como visitante, quiero ver las áreas de trabajo de la AFA en formato grid de tarjetas, para saber en qué iniciativas puedo participar.
+
+**US-10.5 — Sección "Colegio"**
+> Como familia interesada, quiero encontrar información básica del centro educativo Lluís Braille, para conocer el colegio antes de contactar.
+
+---
+
+## EPIC 11 — Landing pública: secciones dinámicas (Avisos y Noticias)
+**Prioridad:** P2 — Medio
+**Objetivo:** Conectar la landing con el backend para mostrar noticias y avisos en tiempo real sin autenticación.
+**Dependencias:** EPIC 9, EPIC 10, EPIC 1 (US-1.3 endpoints públicos), EPIC 2 (US-2.3 roles para escritura), EPIC 3 (Telegram operativo)
+
+### Historias de usuario
+
+**US-11.1 — Sección "Noticias" en la landing (pública)**
+> Como visitante, quiero ver las últimas noticias de la asociación en la landing sin registrarme, para estar informado de la actividad de la AFA.
+
+**US-11.2 — Sección "Avisos" en la landing y modelo backend**
+> Como familiar, quiero ver avisos importantes en la landing sin autenticación, para estar al tanto de comunicaciones urgentes del colegio o la AFA.
+
+**US-11.3 — CRUD de avisos en el panel de administración**
+> Como administrador, quiero gestionar avisos desde el panel privado (crear, editar, activar/desactivar, eliminar), para controlar qué se muestra en la landing sin tocar código.
+
+---
+
 ## Mapa de dependencias
 
 ```
 EPIC 1 (Seguridad base)
   └── EPIC 2 (Roles)
         └── EPIC 3 (Telegram operativo)
-        └── EPIC 4 (Navegación)
-        └── EPIC 7 (Tests)
-              └── EPIC 8 (Producción)
+        └── EPIC 4 (Navegación)             ←─ EPIC 9 (Landing base)
+        └── EPIC 7 (Tests)                         └── EPIC 10 (Contenido institucional)
+              └── EPIC 8 (Producción)                     └── EPIC 11 (Secciones dinámicas)
 
-EPIC 5 (Branding)        → independiente, paralelo
+EPIC 5 (Branding)        → prerrequisito de EPIC 9
 EPIC 6 (Deuda técnica)  → independiente, paralelo
 ```
 
@@ -310,7 +375,10 @@ EPIC 6 (Deuda técnica)  → independiente, paralelo
 | EPIC 2 | Roles y permisos | P1 | 4 |
 | EPIC 3 | Telegram operativo | P1 | 3 |
 | EPIC 5 | Branding | P1 | 2 |
+| EPIC 9 | Landing: estructura y navegación | P1 | 4 |
+| EPIC 10 | Landing: contenido institucional | P1 | 5 |
 | EPIC 4 | Navegación (Router + Paginación) | P2 | 3 |
 | EPIC 6 | Deuda técnica | P2 | 3 |
+| EPIC 11 | Landing: secciones dinámicas | P2 | 3 |
 | EPIC 7 | Tests | P3 | 3 |
 | EPIC 8 | Producción | P3 | 4 |
